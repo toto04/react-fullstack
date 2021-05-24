@@ -1,0 +1,14 @@
+{
+  "name": "react-fullstack",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "https://github.com/toto04/react-fullstack.git",
+  "author": "Tommaso Morganti",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@types/node": "^15.6.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.2.4"
+  }
+}
