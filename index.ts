@@ -96,11 +96,13 @@ let main = async () => {
         process.chdir(`..`)
     }
 
+    await call('git init')
+
     console.log(c.bgWhiteBright.black`all done! ❤️ `)
 
     let ans = (await ask('git init?')).toLowerCase()
     if (ans !== 'n' && ans !== 'no') {
-        await fs.move(ignorePath, '/.gitignore')
+        await fs.move(ignorePath, path.join(folderName, '/.gitignore'))
         await call('git init')
         await call('git add .')
         await call('git commit -m "initial commit"')
