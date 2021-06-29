@@ -70,6 +70,7 @@ let main = async () => {
     }
 
     let templatePath = path.join(__filename, `../../template/`)
+    let ignorePath = path.join(__filename, '../../.ignore_template')
 
     if (fs.existsSync(folderName)) {
         console.log(c.bgRedBright`This folder already exists`)
@@ -101,6 +102,7 @@ let main = async () => {
 
     let ans = (await ask('git init?')).toLowerCase()
     if (ans !== 'n' && ans !== 'no') {
+        await fs.move(ignorePath, path.join(folderName, '/.gitignore'))
         await call('git init')
         await call('git add .')
         await call('git commit -m "initial commit"')
